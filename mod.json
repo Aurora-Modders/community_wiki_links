@@ -1,0 +1,16 @@
+﻿// For an explanation of this file's format, see https://github.com/Aurora-Modders/AuroraRegistry/blob/master/Mods/example_mod.json
+{
+    "name": "Community Wiki Links",
+    "description": "Adds links to community resources to Aurora tech descriptions",
+    "status": "poweruser",
+    "type": "database",
+    "configuration_file": "Aurora Community Wiki Links/install.sql",
+    "url": "https://github.com/thashepherd/community_wiki_links",
+    "downloads": [
+    {
+      "version": "0.0.1",
+      "target_aurora_version": "1",
+      "download_url": ""
+    }
+  ]
+}
