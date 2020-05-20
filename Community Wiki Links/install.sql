@@ -1,5 +1,5 @@
 UPDATE DIM_ResearchCategories
    SET NoteField = CASE Name
-      WHEN 'General Science' THEN NoteField || ' Foo!'
+      WHEN 'Active Sensors / Missile Fire Control' THEN ' Foo!'
       ELSE NoteField
       END
