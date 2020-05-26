@@ -37,11 +37,11 @@ UPDATE DIM_ResearchCategories
       WHEN 'Missile Engines' THEN NoteField
       WHEN 'Fighter Pod Bay' THEN COALESCE(NoteField, '') || 'See http://aurorawiki.pentarch.org/index.php?title=C-Missiles#Fighter_Pods_for_Ground_Combat for more info'
       ELSE NoteField
-      END
+      END;
 
 Update DIM_GroundComponentType
    SET ComponentName = ComponentName || " (see http://aurorawiki.pentarch.org/index.php?title=C-GU_Components for more info)";
 
 UPDATE FCT_TechSystem
    SET TechDescription = TechDescription || " (see http://aurorawiki.pentarch.org/index.php?title=C-Ship_Modules#Cargo_Shuttle_Bays_and_Cargo_Handling_Systems for more info)"
-   WHERE (SELECT Description FROM DIM_TechType WHERE DIM_TechType.TechTypeID = FCT_TechSystem.TechTypeID AND DIM_TechType.Description = "Cargo Hold") IS NOT NULL
+   WHERE (SELECT Description FROM DIM_TechType WHERE DIM_TechType.TechTypeID = FCT_TechSystem.TechTypeID AND DIM_TechType.Description = "Cargo Hold") IS NOT NULL;
