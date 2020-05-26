@@ -1,9 +1,9 @@
--- Notes from FCT_TechSystem show in research window
--- Notes from DIM_ResearchCategories show in 'Create Research Project' window
 -- Could potentially add additional info with a FCT_MapLabel
 -- Could potentially add to descriptions in DIM_ComponentType, DIM_GroundComponentType, DIM_GroundUnitCapability (short link only)
-
 -- Get race id (from FCT_Race WHERE NPR = 0?)
+
+
+-- Displayed in 'Create Research Project' window
 
 UPDATE DIM_ResearchCategories
    SET NoteField = CASE Name
@@ -39,9 +39,26 @@ UPDATE DIM_ResearchCategories
       ELSE NoteField
       END;
 
-Update DIM_GroundComponentType
-   SET ComponentName = ComponentName || " (see http://aurorawiki.pentarch.org/index.php?title=C-GU_Components for more info)";
+
+-- Displayed at bottom of Research tab in Economics window
 
 UPDATE FCT_TechSystem
    SET TechDescription = TechDescription || " (see http://aurorawiki.pentarch.org/index.php?title=C-Ship_Modules#Cargo_Shuttle_Bays_and_Cargo_Handling_Systems for more info)"
-   WHERE (SELECT Description FROM DIM_TechType WHERE DIM_TechType.TechTypeID = FCT_TechSystem.TechTypeID AND DIM_TechType.Description = "Cargo Hold") IS NOT NULL;
+   WHERE (
+      SELECT Description FROM DIM_TechType
+      WHERE DIM_TechType.TechTypeID = FCT_TechSystem.TechTypeID
+      AND DIM_TechType.Description = "Cargo Hold") IS NOT NULL;
+
+UPDATE FCT_TechSystem
+   SET TechDescription = TechDescription || " (see http://aurorawiki.pentarch.org/index.php?title=C-Beam_Weapons for more info)"
+   WHERE (
+      SELECT Description FROM DIM_TechType
+      WHERE DIM_TechType.TechTypeID = FCT_TechSystem.TechTypeID
+      AND DIM_TechType.Description IN ("Laser Focal Size", "Laser Wavelength", "Race-Designed Laser", "Reduced Size Lasers")) IS NOT NULL;
+
+
+-- Uncomment this query to add links to the names of Ground Combat Components (not always aesthetic)
+-- Displayed in Unit Class Design tab of Ground Forces window, as well as anywhere that Ground Unit descriptions are displayed
+
+-- Update DIM_GroundComponentType
+   -- SET ComponentName = ComponentName || " (see http://aurorawiki.pentarch.org/index.php?title=C-GU_Components for more info)";
