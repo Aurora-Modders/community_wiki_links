@@ -4,7 +4,7 @@
     "description": "Adds links to community resources to Aurora tech descriptions",
     "status": "poweruser",
     "type": "database",
-    "configuration_file": "Aurora Community Wiki Links/install.sql",
+    "configuration_file": "Community Wiki Links/install.sql",
     "url": "https://github.com/thashepherd/community_wiki_links",
     "downloads": [
     {
