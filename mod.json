@@ -5,6 +5,7 @@
     "status": "poweruser",
     "type": "database",
     "configuration_file": "install.sql",
+    "changelog_file": "CHANGELOG.md",
     "url": "https://github.com/thashepherd/community_wiki_links",
     "downloads": [
     {
@@ -16,6 +17,11 @@
       "version": "0.0.2",
       "target_aurora_version": "1",
       "download_url": "https://github.com/Aurora-Modders/community_wiki_links/releases/download/0.0.2/CommunityWikiLinks.zip"
+    },
+    {
+      "version": "0.0.3",
+      "target_aurora_version": "1",
+      "download_url": "https://github.com/Aurora-Modders/community_wiki_links/releases/download/0.0.3/CommunityWikiLinks.zip"
     }
   ]
 }
